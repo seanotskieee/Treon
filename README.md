@@ -18,6 +18,8 @@ PATCH – Bug fixes or small tweaks; backward-compatible.
 
 We will start with: Treon 1.0.0
 
+To download: Click the ZIP file, and click "View Raw" then the download will automatically start
+
 
 Inform me the changes first before uploading into the repository so we could double check the version number.
 
