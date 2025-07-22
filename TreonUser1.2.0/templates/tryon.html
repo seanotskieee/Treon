@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TREON Try-On</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+
+<section class="tryon-screen">
+  <div class="video-container">
+    <button id="startCameraBtn" class="start-camera-button">Start Camera</button>
+    <img id="video" class="hidden" src="{{ url_for('video_feed') }}" />
+  </div>
+
+  <div class="options-row">
+    <div class="scroll-select brand-scroll">
+      <div class="scroll-row">
+        <div class="scroll-item brand-btn">MAC</div>
+        <div class="scroll-item brand-btn">NARS</div>
+        <div class="scroll-item brand-btn">Maybelline</div>
+        <div class="scroll-item brand-btn">LoReal</div>        
+      </div>
+    </div>
+
+    <div class="scroll-select color-scroll">
+      <div class="scroll-row">
+        <!-- Dynamic shade buttons inserted here -->
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-buttons">
+    <a href="/" class="back-button">←</a>
+    <button id="captureButton" class="capture-button">Capture</button>
+    <button class="done-button">I'm Done</button>
+  </div>
+</section>
+
+<!-- Confirm Modal -->
+<div id="confirmModal" class="modal hidden">
+  <div class="modal-content">
+    <p>Are you sure you are done?</p>
+    <div class="modal-buttons">
+      <button id="confirmYes">Yes</button>
+      <button id="confirmCancel">Cancel</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
