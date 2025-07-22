@@ -50,10 +50,17 @@ COLOR_OPTIONS = {
 
 selected_color_key = 1
 previous_lip_points = None
-smoothing_factor = 0.6
+smoothing_factor = 0.75
 cap = cv2.VideoCapture(0)
-cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)   # You can go even lower: 480 or 320
-cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+#cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)   # You can go even lower: 480 or 320
+#cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
+cap.set(cv2.CAP_PROP_FPS, 60)
+
+print("Width:", cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+print("Height:", cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+print("FPS:", cap.get(cv2.CAP_PROP_FPS))
 
 
 def set_color(color_id):
@@ -112,6 +119,8 @@ def generate_frames():
                     blended = cv2.addWeighted(image_display, 1.0, feathered, 0.3, 0)
                     image_display[lip_mask_3ch] = blended[lip_mask_3ch]
 
-        ret, buffer = cv2.imencode('.jpg', image_display)
+        #ret, buffer = cv2.imencode('.jpg', image_display)
+        encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 95]  # 0–100
+        ret, buffer = cv2.imencode('.jpg', image_display, encode_param)
         frame = buffer.tobytes()
         yield (b'--frame\r\nContent-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
