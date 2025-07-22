@@ -1,15 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const video      = document.getElementById('video');
-  const startBtn   = document.getElementById('startCameraBtn');
   const captureBtn = document.getElementById('captureButton');   // 🆕 grab capture button
-
-  /* ― Start Camera ― */
-  if (startBtn) {
-    startBtn.addEventListener('click', () => {
-      startBtn.classList.add('hidden');
-      video.classList.remove('hidden');
-    });
-  }
 
   /* ― Capture current frame ― 🆕 */
   if (captureBtn) {
@@ -36,28 +27,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const brandShades = {
   mac: [
-    { name: "Ruby Woo", color: "#B31D27", id: 1 },
-    { name: "Velvet Teddy", color: "#A86C5B", id: 2 },
-    { name: "Whirl", color: "#905D55", id: 3 },
-    { name: "Taupe", color: "#8E5441", id: 4 },
+    { name: "Ruby Woo", id: 1 },
+    { name: "Velvet Teddy", id: 2 },
+    { name: "Whirl", id: 3 },
+    { name: "Taupe", id: 4 },
   ],
   nars: [
-    { name: "Deborah", color: "#6F3C2C", id: 5 },
-    { name: "Cruella", color: "#9B1C2D", id: 6 },
-    { name: "Slow Ride", color: "#945E57", id: 7 },
-    { name: "Tolede", color: "#CA6C75", id: 8 },
+    { name: "Deborah", id: 5 },
+    { name: "Cruella", id: 6 },
+    { name: "Slow Ride", id: 7 },
+    { name: "Tolede", id: 8 },
   ],
   maybelline: [
-    { name: "Touch of Spice", color: "#965855", id: 9 },
-    { name: "Clay Crush", color: "#C17865", id: 10 },
-    { name: "Divine Wine", color: "#5E161F", id: 11 },
-    { name: "Raw Cocoa", color: "#4D2D29", id: 12 },
+    { name: "Touch of Spice", id: 9 },
+    { name: "Clay Crush", id: 10 },
+    { name: "Divine Wine", id: 11 },
+    { name: "Raw Cocoa", id: 12 },
   ],
   loreal: [
-    { name: "I Choose", color: "#AD6B65", id: 13 },
-    { name: "Blake’s Red", color: "#A61723", id: 14 },
-    { name: "Montmartre 129", color: "#7C4C40", id: 15 },
-    { name: "Mahogany Studs", color: "#4A2C28", id: 16 },
+    { name: "I Choose", id: 13 },
+    { name: "Blake’s Red", id: 14 },
+    { name: "Montmartre 129", id: 15 },
+    { name: "Mahogany Studs", id: 16 },
   ]
 };
 
