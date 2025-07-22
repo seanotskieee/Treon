@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TREON</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Splash Page -->
+  <section id="splash" class="screen active">
+    <p class="tap-text">Tap anywhere to continue</p>
+  </section>
+
+  <!-- Try-On Page -->
+  <section id="tryon" class="screen">
+    <div class="video-container">
+      <video id="video" autoplay muted playsinline></video>
+    </div>
+
+    <div class="options-row">
+      <div class="scroll-select brand-scroll">
+        <div class="scroll-row">
+          <div class="scroll-item" data-brand="Loreal">Loreal</div>
+          <div class="scroll-item" data-brand="MAC">MAC</div>
+          <div class="scroll-item" data-brand="NARS">NARS</div>
+          <div class="scroll-item" data-brand="Avon">Avon</div>
+          <div class="scroll-item" data-brand="Maybelline">Maybelline</div>
+        </div>
+      </div>
+
+      <div class="scroll-select color-scroll">
+        <div class="scroll-row">
+          <div class="scroll-item" data-color="Green">Green</div>
+          <div class="scroll-item" data-color="Red">Red</div>
+          <div class="scroll-item" data-color="Pink">Pink</div>
+          <div class="scroll-item" data-color="Purple">Purple</div>
+          <div class="scroll-item" data-color="Silver">Silver</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="back-button">←</button>
+      <button class="done-button">I'm Done</button>
+    </div>
+  </section>
+
+  <!-- Privacy Notice Page -->
+  <section id="privacy" class="screen">
+    <div class="logo-wrapper">
+      <img src="Treon1b1.jpg" alt="Treon Logo" class="privacy-logo" />
+    </div>
+    <h1>Data Privacy Notice</h1>
+    <p>
+      To ensure a better customer experience, the system captures data
+      with regards to facial features during use. The captured data will be used
+      to improve the system and its features. However, users may opt out
+      the saving of personal data.
+    </p>
+    <div class="privacy-buttons">
+      <button class="accept-button">No Problem!</button>
+      <button class="decline-button">No Please!</button>
+    </div>
+  </section>
+
+  <!-- Confirmation Modal -->
+  <div id="confirmModal" class="modal">
+    <div class="modal-content">
+      <p>Are you sure you are done?</p>
+      <div class="modal-buttons">
+        <button id="confirmYes">Yes</button>
+        <button id="confirmCancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
