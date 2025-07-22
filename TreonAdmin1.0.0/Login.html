@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin</title>
+  <link rel="stylesheet" href="Login.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Register Form -->
+    <div class="form-card active" id="register">
+      <div class="icon">
+        <img src="Logo.jpg" alt="Logo" class="logo" />
+      </div>
+      <h2>Create Admin Account</h2>
+      <label>Email</label>
+      <input type="email" id="reg-email" placeholder="Enter your email" />
+      <label>Password</label>
+      <div class="password-wrap">
+        <input type="password" placeholder="Enter your password" id="reg-pass" />
+        <i class="fas fa-eye toggle" onclick="toggleVisibility('reg-pass', this)"></i>
+      </div>
+      <label>Confirm Password</label>
+      <div class="password-wrap">
+        <input type="password" placeholder="Confirm your password" id="reg-confirm" />
+        <i class="fas fa-eye toggle" onclick="toggleVisibility('reg-confirm', this)"></i>
+      </div>
+      <button class="primary" id="register-btn">Create Account</button>
+      <p>Already have an account? <a href="#" onclick="showLogin()">Sign in</a></p>
+    </div>
+
+    <!-- Login Form -->
+    <div class="form-card" id="login">
+      <div class="icon">
+        <img src="Logo.jpg" alt="Logo" class="logo" />
+      </div>
+      <h2>TREON Admin Login</h2>
+      <label>Email</label>
+      <input type="email" id="login-email" value="admin@treon.com" />
+      <label>Password</label>
+      <div class="password-wrap">
+        <input type="password" placeholder="Enter your password" id="login-pass" />
+        <i class="fas fa-eye toggle" onclick="toggleVisibility('login-pass', this)"></i>
+      </div>
+      <button class="primary" id="login-btn">Sign In</button>
+      <p>Don't have an account? <a href="#" onclick="showRegister()">Create one</a></p>
+    </div>
+  </div>
+
+  <script src="Login.js"></script>
+</body>
+</html>
