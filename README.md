@@ -17,7 +17,7 @@ PATCH – Bug fixes or small tweaks; backward-compatible.
 
 
 
-We will start with: TreonUser_1.0.0 & TreonAdmin_1.0.0
+We will start with: TreonUser1.0.0 & TreonAdmin1.0.0
 
 To download: Click the ZIP file, and click "View Raw" then the download will automatically start
 
