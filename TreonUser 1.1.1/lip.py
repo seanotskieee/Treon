@@ -30,25 +30,36 @@ COLOR_OPTIONS = {
     1: rgb_to_bgr((179, 29, 39)),     # Ruby Woo
     2: rgb_to_bgr((168, 108, 91)),    # Velvet Teddy
     3: rgb_to_bgr((144, 93, 85)),     # Whirl – Rosy brown
-    4: rgb_to_bgr((142, 84, 65)),     # Taupe
+    4: rgb_to_bgr((142, 84, 65)),     # Taupe – Reddish brown nude
+    5: rgb_to_bgr((75, 46, 44)),      # Double Fudge – Deep chocolate brown
 
     # NARS
-    5: rgb_to_bgr((111, 60, 44)),     # Deborah – Chestnut brown
-    6: rgb_to_bgr((155, 28, 45)),     # Cruella
-    7: rgb_to_bgr((148, 94, 87)),     # Slow Ride
-    8: rgb_to_bgr((202, 108, 117)),   # Tolede
+    6: rgb_to_bgr((111, 60, 44)),     # Deborah – Chestnut brown
+    7: rgb_to_bgr((155, 28, 45)),     # Cruella - Scarlet red
+    8: rgb_to_bgr((148, 94, 87)),     # Slow Ride – Soft brown-pink
+    9: rgb_to_bgr((202, 108, 117)),   # Tolede - Pink rose
+    10: rgb_to_bgr((179, 95, 74)),     # Jane – Terracotta brown
 
     # Maybelline
-    9:  rgb_to_bgr((150, 88, 85)),    # Touch of Spice
-    10: rgb_to_bgr((193, 120, 101)),  # Clay Crush
-    11: rgb_to_bgr((94, 22, 31)),     # Divine Wine
-    12: rgb_to_bgr((77, 45, 41)),     # Raw Cocoa
+    11: rgb_to_bgr((150, 88, 85)),    # Touch of Spice - Warm mauve nude
+    12: rgb_to_bgr((193, 120, 101)),  # Clay Crush – Terracotta brown
+    13: rgb_to_bgr((94, 22, 31)),     # Divine Wine - Deep burgundy
+    14: rgb_to_bgr((77, 45, 41)),     # Raw Cocoa – Deep cocoa brown
+    15: rgb_to_bgr((106, 62, 56)),    # Toasted Brown – Chocolate brown
 
     # L’Oréal
-    13: rgb_to_bgr((173, 107, 101)),  # I Choose
-    14: rgb_to_bgr((166, 23, 35)),    # Blake’s Red
-    15: rgb_to_bgr((124, 76, 64)),    # Montmartre
-    16: rgb_to_bgr((74, 44, 40)),     # Mahogany Studs
+    16: rgb_to_bgr((173, 107, 101)),  # I Choose - Brownish-pink nude ink
+    17: rgb_to_bgr((166, 23, 35)),    # Blake’s Red - Bold classic red
+    18: rgb_to_bgr((124, 76, 64)),    # Montmartre – Coffee brown
+    19: rgb_to_bgr((74, 44, 40)),     # Mahogany Studs – Mahogany brown
+    20: rgb_to_bgr((95, 62, 59)),     # I Dare – Deep neutral brown
+
+    # AVON (Filipino favorites)
+    21: rgb_to_bgr((125, 68, 54)),    # Toasted Rose – Warm brown-pink
+    22: rgb_to_bgr((97, 54, 47)),     # Matte Cocoa – Dark chocolate brown
+    23: rgb_to_bgr((157, 94, 80)),    # Mocha – Medium rosy brown
+    24: rgb_to_bgr((113, 64, 55)),    # Marvelous Mocha – Soft brown matte
+    25: rgb_to_bgr((150, 87, 69)),    # Brick Rose – Reddish-brown matte
 }
 
 # Globals
