@@ -60,11 +60,6 @@ body, html {
 }
 
 .options-row {
-  /*display: flex;
-  gap: 20px;
-  width: 90%;
-  max-width: 960px;
-  justify-content: space-between;*/
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -78,7 +73,6 @@ body, html {
 
 .scroll-select {
   flex: 1;
-  width: 48%;
   height: 60px;
   overflow-x: auto;
   overflow-y: hidden;
@@ -91,17 +85,18 @@ body, html {
   border-radius: 8px;
   padding: 10px;
   box-sizing: border-box;
+  min-width: 0;
 }
 
 .scroll-select::-webkit-scrollbar {
-  display: none; /* Hide scrollbar (Chrome/Safari) */
+  display: none;
 }
 
 .scroll-row {
-  display: inline-flex;
-  gap: 20px;
-  width: max-content; /* 👈 Ensures it's wide enough for scrolling */
-  /*border: 1px dashed red; /* remove this later */
+  display: flex;
+  gap: 10px;
+  flex-wrap: nowrap;
+  width: max-content; 
 }
 
 .scroll-item {
@@ -111,7 +106,11 @@ body, html {
   align-items: center;
   white-space: nowrap;
   user-select: none;
-  /*border: 1px solid blue; /* remove this later */
+  flex: 0 0 auto;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  cursor: pointer;
 }
 
 .done-link {
@@ -130,7 +129,7 @@ body, html {
   align-items: center;
   left: 50%;
   transform: translateX(-50%);
-  gap: 20px; /* Space between back, capture, done buttons */
+  gap: 20px;
 }
 
 .back-button {
@@ -316,23 +315,21 @@ body, html {
   position: relative;
 }
 
-.brand-btn {
+.brand-btn.active {
   cursor: pointer;
   background: none;
+  background-color: #e0b9f3; /* soft purple, like your image */
   padding: 4px 8px;
   border: none;
   font-size: 16px;
   font-weight: bold;
   color: #000000;
-  border-radius: 4px;
+  border-radius: 6px;
   transition: text-decoration 0.2s ease;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.brand-btn:hover {
-  text-decoration: underline;
-}
-
-.color-btn {
+.color-btn.active {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -345,4 +342,6 @@ body, html {
   text-align: center;
   white-space: nowrap;
   cursor: pointer;
+  background-color: #e0b9f3; /* soft purple, like your image */
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
