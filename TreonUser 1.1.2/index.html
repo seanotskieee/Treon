@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TREON</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <style>
+    .hidden-section { display: none; }
+  </style>
+</head>
+<body>
+
+<!-- Splash Screen -->
+<section id="splash" class="splash-fullpage" onclick="goToTryOn()">
+  <p class="tap-text">Tap anywhere to continue</p>
+</section>
+
+<!-- Try-On Screen -->
+<section id="tryon" class="tryon-screen hidden-section">
+  <div class="video-container">
+    <img id="video" src="video_feed" />
+  </div>
+
+
+  <div class="options-row">
+    <div class="scroll-select brand-scroll">
+      <div class="scroll-row">
+        <div class="scroll-item brand-btn">MAC</div>
+        <div class="scroll-item brand-btn">NARS</div>
+        <div class="scroll-item brand-btn">Maybelline</div>
+        <div class="scroll-item brand-btn">LoReal</div>
+        <div class="scroll-item brand-btn">Avon</div>
+
+      </div>
+    </div>
+
+    <div class="scroll-select color-scroll">
+      <div class="scroll-row">
+        <!-- Shade buttons dynamically added from JS -->
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-buttons">
+    <a href="#" class="back-button" onclick="goToSplash()">&larr;</a>
+    <button id="captureButton" class="capture-button">Capture</button>
+    <button class="done-button" onclick="showDoneModal()">I'm Done</button>
+  </div>
+
+  <!-- Confirm Modal inside Try-On -->
+  <div id="confirmModal" class="modal hidden">
+    <div class="modal-content">
+      <p>Are you sure you're done?</p>
+      <div class="modal-buttons">
+        <button id="confirmYes">Yes</button>
+        <button id="confirmCancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Privacy Notice -->
+<section id="privacy" class="privacy-notice hidden-section">
+  <div class="logo-wrapper">
+    <img src="Treon1b1.jpg" alt="TREON Logo" class="privacy-logo" />
+  </div>
+
+  <h1>Data Privacy Notice</h1>
+  <p>
+    To ensure a better customer experience, the system captures data
+    with regards to facial features during use. The captured data will be used
+    to improve the system and its features. However, users may opt out
+    the saving of personal data.
+  </p>
+
+  <div class="privacy-buttons">
+    <button class="accept-button">No Problem!</button>
+    <button class="decline-button">No Please!</button>
+  </div>
+</section>
+
+<!-- Confirm Modal -->
+<div id="confirmModal" class="modal hidden">
+  <div class="modal-content">
+    <p>Are you sure you are done?</p>
+    <div class="modal-buttons">
+      <button id="confirmYes">Yes</button>
+      <button id="confirmCancel">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function goToTryOn() {
+    document.getElementById('splash').classList.add('hidden-section');
+    document.getElementById('tryon').classList.remove('hidden-section');
+  }
+
+  function goToPrivacy() {
+    document.getElementById('tryon').classList.add('hidden-section');
+    document.getElementById('privacy').classList.remove('hidden-section');
+  }
+
+  function goToSplash() {
+    document.getElementById('privacy').classList.add('hidden-section');
+    document.getElementById('splash').classList.remove('hidden-section');
+  }
+
+  function showDoneModal() {
+    document.getElementById('confirmModal').classList.remove('hidden');
+  }
+
+  document.getElementById('confirmCancel')?.addEventListener('click', () => {
+    document.getElementById('confirmModal').classList.add('hidden');
+  });
+
+  document.getElementById('confirmYes')?.addEventListener('click', () => {
+    document.getElementById('confirmModal').classList.add('hidden');
+    goToPrivacy();
+  });
+
+  document.querySelector('.accept-button')?.addEventListener('click', goToSplash);
+  document.querySelector('.decline-button')?.addEventListener('click', () => {
+    alert("Your preference has been saved. No personal data will be stored.");
+    goToSplash();
+  });
+</script>
+
+</body>
+</html>
