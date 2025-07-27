@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TreonAdmin Dashboard - Product Management</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <link rel="stylesheet" href="product_management.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">TREON</div>
+    <div class="profile">
+      <div class="profile-image">
+        <img src="static/Admin.png" alt="Admin Profile" />
+      </div>
+      <span>Admin</span>
+      <span>Dashboard</span>
+    </div>
+    <button class="nav-button" id="dashboard-btn">Dashboard</button>
+    <button class="nav-button" id="sessions-btn">Sessions</button>
+    <button class="nav-button active" id="products-btn">Products</button>
+    <button class="nav-button" id="settings-btn">Settings</button>
+  </div>
+
+  <div class="main">
+    <div class="header-box">
+      <h1>Product Management</h1>
+      <p>Manage your products and monitor their performance.</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat-card">
+        <span>Total Products</span>
+        <span id="total-products">0</span>
+      </div>
+      <div class="stat-card">
+        <span>Average Rating</span>
+        <span id="average-rating">0.0 ⭐</span>
+      </div>
+      <div class="stat-card">
+        <span>Total Shade</span>
+        <span id="total-shade">0</span>
+      </div>
+    </div>
+
+    <div class="form-container">
+      <input type="text" id="brand" placeholder="Brand" />
+      <div class="color-input-group">
+        <input type="text" id="color" placeholder="Color or Hex" />
+        <div class="color-preview" id="colorPreview"></div>
+        <div class="hex-display" id="hexDisplay"></div>
+      </div>
+      <button onclick="addProduct()">+ Add</button>
+    </div>
+
+    <div class="products">
+      <h3>Existing Products</h3>
+      <div id="product-container"></div>
+    </div>
+  </div>
+
+  <script>
+    // Authentication check
+    if (sessionStorage.getItem("isLoggedIn") !== "true") {
+      window.location.href = "Login.html";
+    }
+
+    // Navigation functionality
+    document.getElementById("dashboard-btn").addEventListener("click", () => {
+      window.location.href = "dashboard.html";
+    });
+
+    document.getElementById("sessions-btn").addEventListener("click", () => {
+      window.location.href = "Session_managment.html";
+    });
+
+    document.getElementById("settings-btn").addEventListener("click", () => {
+      window.location.href = "setting.html";
+    });
+
+    // Active button highlight
+    document.querySelectorAll(".nav-button").forEach((button) => {
+      button.addEventListener("click", function () {
+        document.querySelectorAll(".nav-button").forEach((btn) => {
+          btn.classList.remove("active");
+        });
+        this.classList.add("active");
+      });
+    });
+  </script>
+  <script src="product_management.js"></script>
+</body>
+</html>
