@@ -67,15 +67,15 @@ selected_color_key = 1
 previous_lip_points = None
 smoothing_factor = 0.65
 
-# Initialize webcam
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
 cap.set(cv2.CAP_PROP_FPS, 60)
 
-print("Width:", cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-print("Height:", cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-print("FPS:", cap.get(cv2.CAP_PROP_FPS))
+width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
+height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
+fps = cap.get(cv2.CAP_PROP_FPS)
+print(f"Width: {width}\nHeight: {height}\nFPS: {fps}")
 
 # Set lipstick shade
 def set_color(color_id):
@@ -146,3 +146,4 @@ def generate_frames():
         ret, buffer = cv2.imencode('.jpg', image_display, encode_param)
         frame = buffer.tobytes()
         yield (b'--frame\r\nContent-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
