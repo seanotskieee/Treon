@@ -65,17 +65,17 @@ COLOR_OPTIONS = {
 # Globals
 selected_color_key = 1
 previous_lip_points = None
-smoothing_factor = 0.65
+smoothing_factor = 0.5
 
-cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
-cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
-cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
-cap.set(cv2.CAP_PROP_FPS, 60)
+# Initialize webcam
+cap = cv2.VideoCapture(1)
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280) #1920->640
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720) #1080->480
+cap.set(cv2.CAP_PROP_FPS, 30) #60->30
 
-width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
-height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
-fps = cap.get(cv2.CAP_PROP_FPS)
-print(f"Width: {width}\nHeight: {height}\nFPS: {fps}")
+print("Width:", cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+print("Height:", cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+print("FPS:", cap.get(cv2.CAP_PROP_FPS))
 
 # Set lipstick shade
 def set_color(color_id):
@@ -134,7 +134,7 @@ def generate_frames():
                     cv2.fillPoly(overlay, [np.array(current_lip_points, dtype=np.int32)], desired_color.tolist())
 
                     # Feathered lipstick overlay
-                    feathered = cv2.GaussianBlur(overlay, (15, 15), 0)
+                    feathered = cv2.GaussianBlur(overlay, (9, 9), 0) # instead of (15, 15)
                     lip_mask_3ch = cv2.merge([lip_mask]*3).astype(bool)
 
                     # Blend with original
@@ -142,8 +142,7 @@ def generate_frames():
                     image_display[lip_mask_3ch] = blended[lip_mask_3ch]
 
         # Encode final output
-        encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 95]
+        encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 85] #95
         ret, buffer = cv2.imencode('.jpg', image_display, encode_param)
         frame = buffer.tobytes()
         yield (b'--frame\r\nContent-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
-
