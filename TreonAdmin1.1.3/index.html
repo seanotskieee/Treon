@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TREON</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="camera-permission" content="allow">
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <style>
+    .hidden-section { display: none; }
+    #video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scaleX(1);
+      background-color: black;
+    }
+    .video-container {
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Splash Screen -->
+<section id="splash" class="splash-fullpage" onclick="goToTryOn()">
+  <p class="tap-text">Tap anywhere to continue</p>
+</section>
+
+<!-- Try-On Screen -->
+<section id="tryon" class="tryon-screen hidden-section">
+  <div class="video-container">
+    <img id="video" src="" alt="Live camera feed" />
+    <!-- Error message will be inserted here by JavaScript -->
+  </div>
+
+  <div class="options-row">
+    <div class="scroll-select brand-scroll">
+      <div class="scroll-row">
+        <!-- Brand buttons will be populated dynamically -->
+      </div>
+    </div>
+
+    <div class="scroll-select color-scroll">
+      <div class="scroll-row">
+        <!-- Shade buttons will be populated dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-buttons">
+    <a href="#" class="back-button" onclick="goToSplash()">&larr;</a>
+    
+    <!-- Centered section with rating and capture button -->
+    <div class="center-section">
+      <!-- Rating stars -->
+      <div class="rating-container">
+        <div class="stars">
+          <span class="star" data-value="1">☆</span>
+          <span class="star" data-value="2">☆</span>
+          <span class="star" data-value="3">☆</span>
+          <span class="star" data-value="4">☆</span>
+          <span class="star" data-value="5">☆</span>
+        </div>
+      </div>
+      
+      <button id="captureButton" class="capture-button">Capture</button>
+    </div>
+    
+    <button class="done-button" onclick="showDoneModal()">I'm Done</button>
+  </div>
+
+  <!-- Confirm Modal inside Try-On -->
+  <div id="confirmModal" class="modal hidden">
+    <div class="modal-content">
+      <p>Are you sure you're done?</p>
+      <div class="modal-buttons">
+        <button id="confirmYes">Yes</button>
+        <button id="confirmCancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Privacy Notice -->
+<section id="privacy" class="privacy-notice hidden-section">
+  <div class="logo-wrapper">
+    <img src="Treon1b1.jpg" alt="TREON Logo" class="privacy-logo" />
+  </div>
+
+  <h1>Data Privacy Notice</h1>
+  <p>
+    To ensure a better customer experience, the system captures data
+    with regards to facial features during use. The captured data will be used
+    to improve the system and its features. However, users may opt out
+    the saving of personal data.
+  </p>
+
+  <div class="privacy-buttons">
+    <button class="accept-button" onclick="goToSplash()">No Problem!</button>
+    <button class="decline-button" onclick="showDeclineModal()">No Please!</button>
+  </div>
+</section>
+
+<!-- Confirm Modal -->
+<div id="confirmModal" class="modal hidden">
+  <div class="modal-content">
+    <p>Are you sure you are done?</p>
+    <div class="modal-buttons">
+      <button id="confirmYes">Yes</button>
+      <button id="confirmCancel">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- Decline Modal -->
+<div id="declineModal" class="modal hidden">
+  <div class="modal-content">
+    <p>Your preference has been saved. No personal data will be stored.</p>
+    <div class="modal-buttons">
+      <button id="declineOkButton">OK</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function goToTryOn() {
+    document.getElementById('splash').classList.add('hidden-section');
+    document.getElementById('privacy').classList.add('hidden-section');
+    document.getElementById('tryon').classList.remove('hidden-section');
+    resetTryOnScreen();
+    
+    // Initialize video stream with timestamp to prevent caching
+    const video = document.getElementById('video');
+    video.src = "/video_feed?t=" + new Date().getTime();
+    console.log("Video source set to:", video.src);
+    
+    // Reset rating stars when entering tryon screen
+    if (typeof resetRatingStars === 'function') {
+      resetRatingStars();
+    }
+  }
+
+  function goToPrivacy() {
+    document.getElementById('tryon').classList.add('hidden-section');
+    document.getElementById('privacy').classList.remove('hidden-section');
+  }
+
+  function goToSplash() {
+    document.getElementById('privacy').classList.add('hidden-section');
+    document.getElementById('tryon').classList.add('hidden-section');
+    document.getElementById('splash').classList.remove('hidden-section');
+    
+    // Reset rating stars when returning to splash screen
+    if (typeof resetRatingStars === 'function') {
+      resetRatingStars();
+    }
+  }
+
+  function showDoneModal() {
+    document.getElementById('confirmModal').classList.remove('hidden');
+  }
+  
+  function showDeclineModal() {
+    document.getElementById('declineModal').classList.remove('hidden');
+  }
+
+  document.getElementById('confirmCancel')?.addEventListener('click', () => {
+    document.getElementById('confirmModal').classList.add('hidden');
+  });
+
+  document.getElementById('confirmYes')?.addEventListener('click', () => {
+    document.getElementById('confirmModal').classList.add('hidden');
+    goToPrivacy();
+  });
+
+  document.getElementById('declineOkButton')?.addEventListener('click', () => {
+    document.getElementById('declineModal').classList.add('hidden');
+    goToSplash();
+  });
+</script>
+
+</body>
+</html>
