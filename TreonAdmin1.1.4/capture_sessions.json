@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1238d076-019b-4610-b41f-5d8377215385",
+    "datetime": "08/31/2025 00:51",
+    "brand": "None",
+    "shade_id": "None",
+    "duration": "0m 0s",
+    "image_filename": "captured_image_20250831_005138.jpg",
+    "rating": 5
+  },
+  {
+    "id": "8aa31714-94e5-45b6-a2ac-9a25752d5b07",
+    "datetime": "08/31/2025 00:52",
+    "brand": "NYX",
+    "shade_id": "28-abu dhabi",
+    "duration": "0m 26s",
+    "image_filename": "captured_image_20250831_005218.jpg",
+    "rating": 5
+  },
+  {
+    "id": "7805ad09-69c4-4052-a0f6-61680113cc8f",
+    "datetime": "08/31/2025 07:05",
+    "brand": "None",
+    "shade_id": "None",
+    "duration": "0m 0s",
+    "image_filename": "captured_image_20250831_070523.jpg",
+    "rating": 5
+  },
+  {
+    "id": "1f4d8ab6-87c0-452a-897a-0734be07becd",
+    "datetime": "08/31/2025 07:05",
+    "brand": "Maybelline",
+    "shade_id": "30-touch of spice",
+    "duration": "0m 18s",
+    "image_filename": "captured_image_20250831_070552.jpg",
+    "rating": 5
+  },
+  {
+    "id": "e4967891-8839-4ff7-806f-9c50b1130c54",
+    "datetime": "08/31/2025 07:06",
+    "brand": "Maybelline",
+    "shade_id": "30-touch of spice",
+    "duration": "0m 17s",
+    "image_filename": "captured_image_20250831_070618.jpg",
+    "rating": 5
+  }
+]

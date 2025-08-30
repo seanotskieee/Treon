@@ -1,0 +1,144 @@
+{
+  "brands": {
+    "Fenty Beauty": {
+      "total": 5,
+      "count": 1,
+      "ratings": [
+        {
+          "rating": 5,
+          "timestamp": "2025-08-31T00:51:38.655770",
+          "color_id": "27-ma'damn"
+        }
+      ]
+    },
+    "NYX": {
+      "total": 5,
+      "count": 1,
+      "ratings": [
+        {
+          "rating": 5,
+          "timestamp": "2025-08-31T00:52:18.760367",
+          "color_id": "28-abu dhabi"
+        }
+      ]
+    },
+    "Maybelline": {
+      "total": 15,
+      "count": 3,
+      "ratings": [
+        {
+          "rating": 5,
+          "timestamp": "2025-08-31T07:05:23.239087",
+          "color_id": "30-divine wine"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-08-31T07:05:52.083344",
+          "color_id": "30-touch of spice"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-08-31T07:06:18.710040",
+          "color_id": "30-touch of spice"
+        }
+      ]
+    }
+  },
+  "colors": {
+    "27-ma'damn": {
+      "total": 5,
+      "count": 1,
+      "ratings": [
+        {
+          "rating": 5,
+          "timestamp": "2025-08-31T00:51:38.655770",
+          "brand": "Fenty Beauty"
+        }
+      ]
+    },
+    "28-abu dhabi": {
+      "total": 5,
+      "count": 1,
+      "ratings": [
+        {
+          "rating": 5,
+          "timestamp": "2025-08-31T00:52:18.760367",
+          "brand": "NYX"
+        }
+      ]
+    },
+    "30-divine wine": {
+      "total": 5,
+      "count": 1,
+      "ratings": [
+        {
+          "rating": 5,
+          "timestamp": "2025-08-31T07:05:23.239087",
+          "brand": "Maybelline"
+        }
+      ]
+    },
+    "30-touch of spice": {
+      "total": 10,
+      "count": 2,
+      "ratings": [
+        {
+          "rating": 5,
+          "timestamp": "2025-08-31T07:05:52.083344",
+          "brand": "Maybelline"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-08-31T07:06:18.710040",
+          "brand": "Maybelline"
+        }
+      ]
+    }
+  },
+  "brand_colors": {
+    "Fenty Beauty_27-ma'damn": {
+      "total": 5,
+      "count": 1,
+      "ratings": [
+        {
+          "rating": 5,
+          "timestamp": "2025-08-31T00:51:38.655770"
+        }
+      ]
+    },
+    "NYX_28-abu dhabi": {
+      "total": 5,
+      "count": 1,
+      "ratings": [
+        {
+          "rating": 5,
+          "timestamp": "2025-08-31T00:52:18.760367"
+        }
+      ]
+    },
+    "Maybelline_30-divine wine": {
+      "total": 5,
+      "count": 1,
+      "ratings": [
+        {
+          "rating": 5,
+          "timestamp": "2025-08-31T07:05:23.239087"
+        }
+      ]
+    },
+    "Maybelline_30-touch of spice": {
+      "total": 10,
+      "count": 2,
+      "ratings": [
+        {
+          "rating": 5,
+          "timestamp": "2025-08-31T07:05:52.083344"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-08-31T07:06:18.710040"
+        }
+      ]
+    }
+  }
+}
