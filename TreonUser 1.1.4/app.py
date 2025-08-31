@@ -58,7 +58,7 @@ def start_session():
         "feedback": None   # 👈 new field for storing feedback
     }
 
-    print(f"🎬 Session started for user {user_id} at {start_time}")
+    print(f"\n🎬 Session started for user {user_id} at {start_time}")
     return jsonify({"user_id": user_id}), 200
 
 
