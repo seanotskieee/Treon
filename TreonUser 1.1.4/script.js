@@ -4,32 +4,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Capture frame from camera
   if (captureBtn) {
-  captureBtn.addEventListener('click', () => {
-    fetch('/capture', { method: 'POST' })
-      .then(res => res.json())
-      .then(data => {
-        if (data.status === "success") {
-          console.log("✅ Image saved at:", data.file_path);
+    captureBtn.addEventListener('click', () => {
+      fetch('/capture', { method: 'POST' })
+        .then(res => res.json())
+        .then(data => {
+          if (data.status === "success") {
+            console.log("✅ Image saved at:", data.file_path);
 
-          // Optional: preview captured image
-          const preview = document.getElementById("capture-preview");
-          if (preview) {
-            preview.src = data.file_path;
-            preview.style.display = "block";
+            // Optional: preview captured image
+            const preview = document.getElementById("capture-preview");
+            if (preview) {
+              preview.src = data.file_path;
+              preview.style.display = "block";
+            } else {
+              alert("📸 Image captured and saved!");
+            }
           } else {
-            alert("📸 Image captured and saved!");
+            alert("❌ Failed to capture image: " + data.message);
           }
-        } else {
-          alert("❌ Failed to capture image: " + data.message);
-        }
-      })
-      .catch(err => {
-        console.error("⚠️ Error while capturing image:", err);
-        alert("⚠️ Error while capturing image.");
-      });
-  });
-}
-
+        })
+        .catch(err => {
+          console.error("⚠️ Error while capturing image:", err);
+          alert("⚠️ Error while capturing image.");
+        });
+    });
+  }
 
   setupSimpleScroll('.brand-scroll');
   setupSimpleScroll('.color-scroll');
@@ -151,8 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-
-
 function setupBrandSelection() {
   const brandButtons = document.querySelectorAll('.brand-btn');
 
@@ -183,7 +180,6 @@ function setupSimpleScroll(containerSelector) {
   let isDragging = false;
   let startX, scrollLeft;
 
-  // Mouse events for desktop
   container.addEventListener('mousedown', (e) => {
     isDragging = true;
     container.classList.add('dragging');
@@ -212,7 +208,7 @@ function setupSimpleScroll(containerSelector) {
     if (!isDragging) return;
     e.preventDefault();
     const x = e.pageX - container.offsetLeft;
-    const walk = (x - startX) * 1.5; // Adjust multiplier for scroll speed
+    const walk = (x - startX) * 1.5;
     container.scrollLeft = scrollLeft - walk;
   });
 
@@ -232,7 +228,7 @@ function setupSimpleScroll(containerSelector) {
   container.addEventListener('touchmove', (e) => {
     if (!isDragging) return;
     const x = e.touches[0].pageX - container.offsetLeft;
-    const walk = (x - startX) * 1.5; // Adjust multiplier for scroll speed
+    const walk = (x - startX) * 1.5;
     container.scrollLeft = scrollLeft - walk;
   });
 
@@ -261,6 +257,7 @@ function setupModalEvents() {
   });
 
   yesBtn.addEventListener('click', () => {
+    yesBtn.disabled = true; // prevent double clicks
     modal.classList.add('hidden');
     goToPrivacy();
   });
@@ -268,36 +265,22 @@ function setupModalEvents() {
 
 // function to reset the try-on screen
 function resetTryOnScreen() {
-  // Clear all active brand selections
-  document.querySelectorAll('.brand-btn').forEach(btn => {
-    btn.classList.remove('active');
-  });
-  
-  // Clear all active shade selections
-  document.querySelectorAll('.color-btn').forEach(btn => {
-    btn.classList.remove('active');
-  });
-  
-  // Clear the shades row
+  document.querySelectorAll('.brand-btn').forEach(btn => btn.classList.remove('active'));
+  document.querySelectorAll('.color-btn').forEach(btn => btn.classList.remove('active'));
   const scrollRow = document.querySelector('.color-scroll .scroll-row');
-  if (scrollRow) {
-    scrollRow.innerHTML = '';
-  }
+  if (scrollRow) scrollRow.innerHTML = '';
 
-  // Hide rating box + label for new session
   const ratingBox = document.getElementById('ratingBox');
   const rateLabel = document.getElementById('rate-label');
   if (ratingBox) ratingBox.classList.add('hidden');
   if (rateLabel) rateLabel.style.display = 'none';
-  
-  // Activate the default brand (MAC)
+
   const defaultBrand = document.querySelector('.brand-btn');
   if (defaultBrand) {
     defaultBrand.classList.add('active');
     loadShadesForBrand('mac');
   }
 }
-
 
 /* 🌟 Feedback Stars */
 const fstars = document.querySelectorAll(".fstar");
@@ -316,23 +299,20 @@ fstars.forEach((star, index) => {
 });
 
 function resetFeedbackForm() {
-  // Reset stars back to ☆
   document.querySelectorAll(".fstar").forEach(s => {
     s.classList.remove("selected");
     s.textContent = "☆";
   });
-
-  // Reset textarea
   const feedbackBox = document.getElementById("feedback-text");
   if (feedbackBox) feedbackBox.value = "";
 }
 
-// Call reset when returning to splash
+// ✅ Keep only one goToSplashFromFeedback
 function goToSplashFromFeedback() {
   resetFeedbackForm();
-  showSection("splash");
+  document.getElementById("feedback").classList.add("hidden");
+  document.getElementById("splash").classList.remove("hidden-section");
 }
-
 
 /* 🌟 Feedback buttons */
 document.getElementById("submitFeedback")?.addEventListener("click", () => {
@@ -343,7 +323,7 @@ document.getElementById("submitFeedback")?.addEventListener("click", () => {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      user_id: currentUserId,   // 👈 include session user_id
+      user_id: currentUserId,
       feedback_rating: rating,
       feedback_text: feedbackText
     })
@@ -355,20 +335,12 @@ document.getElementById("submitFeedback")?.addEventListener("click", () => {
     goToSplashFromFeedback();
   })
   .catch(err => console.error("❌ Feedback error:", err));
-
-
 });
-
-
 
 document.getElementById("skipFeedback")?.addEventListener("click", goToSplashFromFeedback);
 
-function goToSplashFromFeedback() {
-  document.getElementById("feedback").classList.add("hidden");
-  document.getElementById("splash").classList.remove("hidden-section");
-}
-
 let currentUserId = null;
+let sessionEnded = false; // ✅ prevent duplicate /end_session
 
 // Start session when Try-On screen opens
 function goToTryOn() {
@@ -377,11 +349,11 @@ function goToTryOn() {
   document.getElementById('tryon').classList.remove('hidden-section');
   resetTryOnScreen();
 
-  // Start session with backend
   fetch('/start_session', { method: 'POST' })
     .then(res => res.json())
     .then(data => {
       currentUserId = data.user_id;
+      sessionEnded = false;
       console.log("🎬 Session started for", currentUserId);
     });
 }
@@ -402,7 +374,8 @@ function goToPrivacy() {
   document.getElementById('tryon').classList.add('hidden-section');
   document.getElementById('privacy').classList.remove('hidden-section');
 
-  if (currentUserId) {
+  if (currentUserId && !sessionEnded) {
+    sessionEnded = true;
     fetch('/end_session', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
