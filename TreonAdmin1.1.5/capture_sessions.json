@@ -1,0 +1,227 @@
+[
+  {
+    "id": "d74453b2-3960-43f0-af5d-78b3ae2efb23",
+    "datetime": "09/09/2025 23:38",
+    "brand": "None",
+    "shade_id": "None",
+    "duration": "0m 0s",
+    "image_filename": "captured_image_20250909_233846.jpg",
+    "rating": 5
+  },
+  {
+    "id": "31427d39-5e11-4435-a16f-2bf56372aa20",
+    "datetime": "09/09/2025 23:39",
+    "brand": "None",
+    "shade_id": "None",
+    "duration": "0m 0s",
+    "image_filename": "captured_image_20250909_233903.jpg",
+    "rating": 5
+  },
+  {
+    "id": "0d8c681e-97db-44b8-8f3c-6b5be25bec6d",
+    "datetime": "09/09/2025 23:39",
+    "brand": "Maybelline",
+    "shade_id": "30-divine wine",
+    "duration": "0m 14s",
+    "image_filename": "captured_image_20250909_233942.jpg",
+    "rating": 5
+  },
+  {
+    "id": "a7d01449-3cf2-47f4-859b-b99451c45ef6",
+    "datetime": "09/09/2025 23:40",
+    "brand": "Fenty Beauty",
+    "shade_id": "27-ma'damn",
+    "duration": "0m 36s",
+    "image_filename": "captured_image_20250909_234021.jpg",
+    "rating": 5
+  },
+  {
+    "id": "29c4ffaf-8a9e-4883-8447-0b71f7840014",
+    "datetime": "09/09/2025 23:40",
+    "brand": "Fenty Beauty",
+    "shade_id": "27-ma'damn",
+    "duration": "0m 7s",
+    "image_filename": "captured_image_20250909_234032.jpg",
+    "rating": 5
+  },
+  {
+    "id": "b48df2b7-85f7-49b2-a894-3bfebe5e6ddb",
+    "datetime": "09/09/2025 23:40",
+    "brand": "NYX",
+    "shade_id": "28-copenhagen",
+    "duration": "0m 4s",
+    "image_filename": "captured_image_20250909_234041.jpg",
+    "rating": 5
+  },
+  {
+    "id": "645d5c52-b3a1-4e2a-947e-7cc6fd51eb99",
+    "datetime": "09/09/2025 23:41",
+    "brand": "Fenty Beauty",
+    "shade_id": "27-uncensored",
+    "duration": "0m 19s",
+    "image_filename": "captured_image_20250909_234130.jpg",
+    "rating": 3
+  },
+  {
+    "id": "cb020657-925d-4dc1-b6c1-c8c24121dfbf",
+    "datetime": "09/09/2025 23:41",
+    "brand": "NYX",
+    "shade_id": "28-copenhagen",
+    "duration": "0m 12s",
+    "image_filename": "captured_image_20250909_234149.jpg",
+    "rating": 5
+  },
+  {
+    "id": "ab0cd048-73a6-4dd7-ae70-96e2a08b56b1",
+    "datetime": "09/09/2025 23:42",
+    "brand": "Revlon",
+    "shade_id": "29-fire & ice",
+    "duration": "0m 1s",
+    "image_filename": "captured_image_20250909_234200.jpg",
+    "rating": 3
+  },
+  {
+    "id": "7f84454a-a9fd-4ebe-a3db-bb29f305695b",
+    "datetime": "09/09/2025 23:42",
+    "brand": "Revlon",
+    "shade_id": "29-cherries in the snow",
+    "duration": "0m 1s",
+    "image_filename": "captured_image_20250909_234207.jpg",
+    "rating": 5
+  },
+  {
+    "id": "1bbb2bc6-7e27-4142-8eb7-07bcd9950e1d",
+    "datetime": "09/09/2025 23:47",
+    "brand": "None",
+    "shade_id": "None",
+    "duration": "0m 0s",
+    "image_filename": "captured_image_20250909_234745.jpg",
+    "rating": 5
+  },
+  {
+    "id": "15b5a069-127c-47b6-82e5-285e176481ca",
+    "datetime": "09/10/2025 06:07",
+    "brand": "Revlon",
+    "shade_id": "29-fire & ice",
+    "duration": "0m 23s",
+    "image_filename": "captured_image_20250910_060739.jpg",
+    "rating": 4
+  },
+  {
+    "id": "a6b7f647-8832-43ae-a2e1-fc6e145b29e8",
+    "datetime": "09/10/2025 06:08",
+    "brand": "Fenty Beauty",
+    "shade_id": "27-freckle fiesta",
+    "duration": "0m 26s",
+    "image_filename": "captured_image_20250910_060808.jpg",
+    "rating": 3
+  },
+  {
+    "id": "177e105f-38cd-46f5-9065-279dc78c8bf3",
+    "datetime": "09/10/2025 06:08",
+    "brand": "NYX",
+    "shade_id": "28-abu dhabi",
+    "duration": "0m 11s",
+    "image_filename": "captured_image_20250910_060823.jpg",
+    "rating": 5
+  },
+  {
+    "id": "6e094044-f928-4c08-8212-f5933257d973",
+    "datetime": "09/10/2025 06:08",
+    "brand": "NYX",
+    "shade_id": "28-abu dhabi",
+    "duration": "0m 20s",
+    "image_filename": "captured_image_20250910_060846.jpg",
+    "rating": 5
+  },
+  {
+    "id": "9403f77b-ae8e-4400-9982-931baf246ff0",
+    "datetime": "09/10/2025 06:10",
+    "brand": "NYX",
+    "shade_id": "28-abu dhabi",
+    "duration": "1m 25s",
+    "image_filename": "captured_image_20250910_061013.jpg",
+    "rating": 5
+  },
+  {
+    "id": "00d11801-d528-4632-a01d-86f7619fdd49",
+    "datetime": "09/10/2025 06:30",
+    "brand": "Fenty Beauty",
+    "shade_id": "27-uncensored",
+    "duration": "2m 41s",
+    "image_filename": "captured_image_20250910_063022.jpg",
+    "rating": 5
+  },
+  {
+    "id": "424ed369-7709-4f40-a6d4-ffe0ab32374d",
+    "datetime": "09/10/2025 06:30",
+    "brand": "Revlon",
+    "shade_id": "29-fire & ice",
+    "duration": "0m 8s",
+    "image_filename": "captured_image_20250910_063033.jpg",
+    "rating": 5
+  },
+  {
+    "id": "493bb99e-5bf0-4249-8f04-ff527e47e0a7",
+    "datetime": "09/10/2025 06:30",
+    "brand": "Revlon",
+    "shade_id": "29-toast of new york",
+    "duration": "0m 11s",
+    "image_filename": "captured_image_20250910_063047.jpg",
+    "rating": 5
+  },
+  {
+    "id": "2fec85b6-8b7f-42e1-96eb-971cf921e1de",
+    "datetime": "09/10/2025 06:32",
+    "brand": "Fenty Beauty",
+    "shade_id": "27-uncensored",
+    "duration": "1m 3s",
+    "image_filename": "captured_image_20250910_063204.jpg",
+    "rating": 5
+  },
+  {
+    "id": "9e7654a7-4bd2-4e9e-9a56-3f04a7de1f29",
+    "datetime": "09/10/2025 06:32",
+    "brand": "NYX",
+    "shade_id": "28-abu dhabi",
+    "duration": "0m 3s",
+    "image_filename": "captured_image_20250910_063211.jpg",
+    "rating": 4
+  },
+  {
+    "id": "aed730f9-0e0e-4927-93b9-9dafbd20ef24",
+    "datetime": "09/10/2025 06:32",
+    "brand": "Revlon",
+    "shade_id": "29-toast of new york",
+    "duration": "0m 5s",
+    "image_filename": "captured_image_20250910_063219.jpg",
+    "rating": 5
+  },
+  {
+    "id": "63d4cf44-bc51-4889-87bd-d8ac077177ed",
+    "datetime": "09/10/2025 06:33",
+    "brand": "Fenty Beauty",
+    "shade_id": "27-freckle fiesta",
+    "duration": "0m 44s",
+    "image_filename": "captured_image_20250910_063333.jpg",
+    "rating": 5
+  },
+  {
+    "id": "66b79c5b-d414-4c9b-bf9c-c74a372d0b56",
+    "datetime": "09/10/2025 06:33",
+    "brand": "NYX",
+    "shade_id": "28-copenhagen",
+    "duration": "0m 9s",
+    "image_filename": "captured_image_20250910_063345.jpg",
+    "rating": 5
+  },
+  {
+    "id": "4a146c3b-de8f-4bab-a915-ecc326e1f9c9",
+    "datetime": "09/10/2025 06:33",
+    "brand": "Revlon",
+    "shade_id": "29-fire & ice",
+    "duration": "0m 6s",
+    "image_filename": "captured_image_20250910_063354.jpg",
+    "rating": 5
+  }
+]

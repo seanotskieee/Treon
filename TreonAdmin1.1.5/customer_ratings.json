@@ -1,0 +1,326 @@
+{
+  "brands": {
+    "Maybelline": {
+      "total": 5,
+      "count": 1,
+      "ratings": [
+        {
+          "rating": 5,
+          "timestamp": "2025-09-09T23:47:45.236805",
+          "color_id": "30-touch of spice"
+        }
+      ]
+    },
+    "Revlon": {
+      "total": 24,
+      "count": 5,
+      "ratings": [
+        {
+          "rating": 4,
+          "timestamp": "2025-09-10T06:07:38.995938",
+          "color_id": "29-fire & ice"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:30:33.716461",
+          "color_id": "29-fire & ice"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:30:47.491143",
+          "color_id": "29-toast of new york"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:32:19.212242",
+          "color_id": "29-toast of new york"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:33:54.606522",
+          "color_id": "29-fire & ice"
+        }
+      ]
+    },
+    "Fenty Beauty": {
+      "total": 18,
+      "count": 4,
+      "ratings": [
+        {
+          "rating": 3,
+          "timestamp": "2025-09-10T06:08:08.197726",
+          "color_id": "27-freckle fiesta"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:30:22.769502",
+          "color_id": "27-uncensored"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:32:04.503380",
+          "color_id": "27-uncensored"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:33:33.469900",
+          "color_id": "27-freckle fiesta"
+        }
+      ]
+    },
+    "NYX": {
+      "total": 24,
+      "count": 5,
+      "ratings": [
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:08:23.702552",
+          "color_id": "28-abu dhabi"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:08:46.248825",
+          "color_id": "28-abu dhabi"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:10:13.776627",
+          "color_id": "28-abu dhabi"
+        },
+        {
+          "rating": 4,
+          "timestamp": "2025-09-10T06:32:11.486533",
+          "color_id": "28-abu dhabi"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:33:45.414054",
+          "color_id": "28-copenhagen"
+        }
+      ]
+    }
+  },
+  "colors": {
+    "30-touch of spice": {
+      "total": 5,
+      "count": 1,
+      "ratings": [
+        {
+          "rating": 5,
+          "timestamp": "2025-09-09T23:47:45.236805",
+          "brand": "Maybelline"
+        }
+      ]
+    },
+    "29-fire & ice": {
+      "total": 14,
+      "count": 3,
+      "ratings": [
+        {
+          "rating": 4,
+          "timestamp": "2025-09-10T06:07:38.995938",
+          "brand": "Revlon"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:30:33.716461",
+          "brand": "Revlon"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:33:54.606522",
+          "brand": "Revlon"
+        }
+      ]
+    },
+    "27-freckle fiesta": {
+      "total": 8,
+      "count": 2,
+      "ratings": [
+        {
+          "rating": 3,
+          "timestamp": "2025-09-10T06:08:08.197726",
+          "brand": "Fenty Beauty"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:33:33.470923",
+          "brand": "Fenty Beauty"
+        }
+      ]
+    },
+    "28-abu dhabi": {
+      "total": 19,
+      "count": 4,
+      "ratings": [
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:08:23.702552",
+          "brand": "NYX"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:08:46.248825",
+          "brand": "NYX"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:10:13.776627",
+          "brand": "NYX"
+        },
+        {
+          "rating": 4,
+          "timestamp": "2025-09-10T06:32:11.486533",
+          "brand": "NYX"
+        }
+      ]
+    },
+    "27-uncensored": {
+      "total": 10,
+      "count": 2,
+      "ratings": [
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:30:22.769502",
+          "brand": "Fenty Beauty"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:32:04.503380",
+          "brand": "Fenty Beauty"
+        }
+      ]
+    },
+    "29-toast of new york": {
+      "total": 10,
+      "count": 2,
+      "ratings": [
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:30:47.491143",
+          "brand": "Revlon"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:32:19.212242",
+          "brand": "Revlon"
+        }
+      ]
+    },
+    "28-copenhagen": {
+      "total": 5,
+      "count": 1,
+      "ratings": [
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:33:45.414054",
+          "brand": "NYX"
+        }
+      ]
+    }
+  },
+  "brand_colors": {
+    "Maybelline_30-touch of spice": {
+      "total": 5,
+      "count": 1,
+      "ratings": [
+        {
+          "rating": 5,
+          "timestamp": "2025-09-09T23:47:45.236805"
+        }
+      ]
+    },
+    "Revlon_29-fire & ice": {
+      "total": 14,
+      "count": 3,
+      "ratings": [
+        {
+          "rating": 4,
+          "timestamp": "2025-09-10T06:07:38.995938"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:30:33.716461"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:33:54.606522"
+        }
+      ]
+    },
+    "Fenty Beauty_27-freckle fiesta": {
+      "total": 8,
+      "count": 2,
+      "ratings": [
+        {
+          "rating": 3,
+          "timestamp": "2025-09-10T06:08:08.197726"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:33:33.470923"
+        }
+      ]
+    },
+    "NYX_28-abu dhabi": {
+      "total": 19,
+      "count": 4,
+      "ratings": [
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:08:23.702552"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:08:46.248825"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:10:13.776627"
+        },
+        {
+          "rating": 4,
+          "timestamp": "2025-09-10T06:32:11.486533"
+        }
+      ]
+    },
+    "Fenty Beauty_27-uncensored": {
+      "total": 10,
+      "count": 2,
+      "ratings": [
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:30:22.769502"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:32:04.503380"
+        }
+      ]
+    },
+    "Revlon_29-toast of new york": {
+      "total": 10,
+      "count": 2,
+      "ratings": [
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:30:47.491143"
+        },
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:32:19.212242"
+        }
+      ]
+    },
+    "NYX_28-copenhagen": {
+      "total": 5,
+      "count": 1,
+      "ratings": [
+        {
+          "rating": 5,
+          "timestamp": "2025-09-10T06:33:45.414054"
+        }
+      ]
+    }
+  }
+}
