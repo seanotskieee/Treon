@@ -1,0 +1,20 @@
+[
+  {
+    "id": "c2362fe9-f1a6-4a90-a5c5-e6048d8151a7",
+    "datetime": "09/10/2025 07:58",
+    "brand": "None",
+    "shade_id": "None",
+    "duration": "0m 0s",
+    "image_filename": "captured_image_20250910_075802.jpg",
+    "rating": 5
+  },
+  {
+    "id": "6b159aff-707e-486d-962b-3c2f228cfb81",
+    "datetime": "09/10/2025 09:41",
+    "brand": "Fenty Beauty",
+    "shade_id": "27-ma'damn",
+    "duration": "0m 8s",
+    "image_filename": "captured_image_20250910_094123.jpg",
+    "rating": 5
+  }
+]
