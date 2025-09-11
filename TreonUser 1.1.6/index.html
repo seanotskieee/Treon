@@ -35,38 +35,37 @@
 
       </div>
     </div>
-
-    <!-- ⭐ Star Rating Section -->
-    <p id="rate-label" class="rate-label">Rate this Shade</p>
-    <div class="scroll-select rating-box" id="ratingBox">
-      <div id="ratingContainer" class="rating-container">
-        <span class="star" data-value="1">&#9734;</span>
-        <span class="star" data-value="2">&#9734;</span>
-        <span class="star" data-value="3">&#9734;</span>
-        <span class="star" data-value="4">&#9734;</span>
-        <span class="star" data-value="5">&#9734;</span>
-      </div>
-    </div>
   </div>
-    
+
   <div class="shade-row">
     <div class="scroll-select color-scroll">
       <div class="scroll-row">
         <!-- Shade buttons dynamically added from JS -->
       </div>
     </div>
-    
-    <p id="rate-label" class="rate-label">Click to Capture </p>
-    <div class="capture-button">
-      <button id="captureButton" class="capture-button">Capture</button>
-    </div>
-
   </div>
 
   <div class="nav-buttons">
     <a href="#" class="back-button" onclick="goToSplash()">&larr;</a>
-    <!--<button id="captureButton" class="capture-button">Capture</button>-->
     <button class="done-button" onclick="showDoneModal()">I'm Done</button>
+  </div>
+  
+  <div class="star-rate">
+      <!-- ⭐ Star Rating Section -->
+      <p id="rate-label" class="rate-label" style="display: none;">Rate this Shade</p>
+      <div class="scroll-select rating-box" id="ratingBox">
+        <div id="ratingContainer" class="rating-container">
+          <span class="star" data-value="1">&#9734;</span>
+          <span class="star" data-value="2">&#9734;</span>
+          <span class="star" data-value="3">&#9734;</span>
+          <span class="star" data-value="4">&#9734;</span>
+          <span class="star" data-value="5">&#9734;</span>
+        </div>
+      </div>
+  </div>
+
+  <div class="cap-button">
+    <button id="captureButton" class="capture-button">Capture</button>
   </div>
 
   <img id="capture-preview" style="display:none; max-width: 100%; margin-top:10px; border: 2px solid #ccc; border-radius: 8px;">
@@ -82,7 +81,7 @@
     </div>
   </div>
 
-  
+
 </section>
 
 <!-- Privacy Notice -->
