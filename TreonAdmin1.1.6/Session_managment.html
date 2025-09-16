@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TreonAdmin Dashboard - Session Management</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="Session_managment.css">
+  <!-- Add Firebase SDKs -->
+  <script type="module" src="firebase-init.js"></script>
+</head>
+<body>
+  <script type="module">
+    import { monitorAuthState } from './auth-service.js';
+    
+    // Authentication check - run immediately
+    monitorAuthState((user) => {
+      if (!user) {
+        window.location.href = "Login.html";
+      }
+    });
+  </script>
+  
+  <div class="sidebar">
+    <div class="logo">TREON</div>
+    <div class="profile">
+      <div class="profile-image">
+        <img src="static/Admin.png" alt="Admin Profile">
+      </div>
+      <span>Admin</span>
+      <span>Dashboard</span>
+    </div>
+    <button class="nav-button" id="dashboard-btn">Dashboard</button>
+    <button class="nav-button active" id="sessions-btn">Sessions</button>
+    <button class="nav-button" id="products-btn">Products</button>
+    <button class="nav-button" id="settings-btn">Settings</button>
+  </div>
+  
+  <div class="main">
+    <div class="header-box">
+      <h1>Session Management</h1>
+      <p>Monitor and manage user sessions across your platform.</p>
+    </div>
+    <div class="stats">
+      <div class="stat-card">
+        <span>Total Sessions</span>
+        <span id="total-sessions">0</span>
+      </div>
+      <div class="stat-card">
+        <span>Avg. Session Time (Daily)</span>
+        <span id="daily-avg-time">0m 0s</span>
+      </div>
+      <div class="stat-card">
+        <span>Avg. Session Time (Weekly)</span>
+        <span id="weekly-avg-time">0m 0s</span>
+      </div>
+      <div class="stat-card">
+        <span>Peak Session</span>
+        <span id="peak-session">0 users</span>
+      </div>
+    </div>
+    <div class="recent-sessions">
+      <h3>Recent Sessions</h3>
+      <div class="sessions-container">
+        <div id="sessions-list">
+          <div class="placeholder-table">
+            <i class="fas fa-spinner fa-spin fa-2x"></i>
+            <p>Loading session data...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal container for edit functionality -->
+  <div id="editModalContainer"></div>
+
+  <script type="module" src="Session_managment.js"></script>
+</body>
+</html>
