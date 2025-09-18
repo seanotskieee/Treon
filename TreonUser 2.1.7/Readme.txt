@@ -1,1 +1,1 @@
-linking to admin's database is the only missing
+Already link to the database
