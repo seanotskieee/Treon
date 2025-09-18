@@ -1,0 +1,616 @@
+/*index*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #111;
+  overflow: hidden;
+}
+
+.splash-fullpage {
+  background: url('Treon.jpg') no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 8px solid #f5cdfa;
+}
+
+.tap-text {
+  position: absolute;
+  bottom: 30px;
+  color: #cc6ff8;
+  font-size: 16px;
+}
+
+/*tryon_main*/
+.tryon-screen {
+  height: 100vh;
+  background: white;
+  border: 8px solid #f5cdfa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.video-container {
+  width: 90%;
+  max-width: 960px;
+  height: 540px;
+  background: black;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(1);
+}
+
+.options-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  width: 35%;
+  max-width: 960px;
+  margin-bottom: 20px;
+  flex-wrap: nowrap;
+}
+
+.shade-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  width: 35%;
+  max-width: 960px;
+  margin-bottom: 20px;
+  flex-wrap: nowrap;
+}
+
+.scroll-select {
+  flex: 1;
+  height: 60px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  background: #fdf4ff;
+  border: 2px solid #cc6ff8;
+  border-radius: 8px;
+  padding: 10px;
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+}
+
+.scroll-select::-webkit-scrollbar {
+  display: none;
+  height: 6px;
+}
+
+.scroll-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: nowrap;
+  width: max-content; 
+}
+
+.scroll-item {
+  min-width: 100px;
+  text-align: center;
+  font-weight: bold;
+  align-items: center;
+  white-space: nowrap;
+  user-select: none;
+  flex: 0 0 auto;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+/* Update the scroll-item for color buttons to include circles */
+.scroll-item.color-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+  height: 90px;
+  text-align: center;
+  font-weight: bold;
+  user-select: none;
+  flex: 0 0 auto;
+  padding: 8px 5px;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  border: 2px solid #f0f0f0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin: 0 5px;
+}
+
+/* Color circle */
+.color-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-bottom: 5px;
+  border: 2px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Shade name */
+.shade-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+  margin-top: 3px;
+  max-width: 70px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Active state for color buttons */
+.color-btn.active {
+  background-color: #e0b9f3;   /* highlight */
+  border: 2px solid #e0b9f3;
+  box-shadow: 0 0 6px rgba(204, 111, 248, 0.4);
+}
+
+.color-btn.active .color-circle {
+  border: 2px solid #e0b9f3;
+  box-shadow: 0 0 6px rgba(204, 111, 248, 0.4);
+}
+
+.color-btn.active .shade-name {
+  color: #000;
+  font-weight: 700;
+}
+
+/* Adjust scroll container for larger items */
+.color-scroll {
+  height: 110px;
+  padding: 10px;
+}
+
+/* Update scroll row for color items */
+.color-scroll .scroll-row {
+  gap: 5px;
+}
+
+.done-link {
+  color: #d946ef;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+.nav-buttons {
+  position: absolute;
+  bottom: 20px;
+  width: 90%;
+  max-width: 960px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 20px;
+}
+
+.star-rate{
+  position: absolute;
+  top: 35%;              /* vertical placement */
+  left: 75%;             /* push it to the right side */
+  transform: translateX(65%);
+  display: flex;
+  flex-direction: column;  /* stack label and stars */
+  align-items: center;
+  gap: 10px;
+}
+
+.cap-button{
+  position: absolute;
+  top: 50%;
+  width: 90%;
+  max-width: 960px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  left: 50%;
+  transform: translateX(55.5%);
+  gap: 20px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: #cc6ff8;
+  font-size: 32px;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 15px;
+  font-weight: bold;
+  transform: scale(1.5);
+}
+
+/* ⭐ Rating Box */
+.rating-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 175px;          
+  height: 40px;          
+  padding: 5px;
+  margin: 10px auto;
+  background-color: #fcf5ff;
+  border: 2px solid #d28cff;
+  border-radius: 10px;
+  box-sizing: border-box;
+  flex: none;
+  align-self: center;
+}
+
+/* ⭐ Stars inside rating box */
+.rating-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  font-size: 25px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.rating-container .star {
+  transition: color 0.2s;
+}
+
+.rating-container .star.selected {
+  color: #f8e436;
+}
+
+.rating-container .star:hover,
+.rating-container .star:hover ~ .star {
+  color: #cc6ff8;
+}
+
+.rate-label {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+}
+
+/* ✅ New: Capture button */
+.capture-button {
+  background-color: #cc6ff8;
+  color: white;
+  font-size: 14px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.capture-button:hover {
+  background-color: #b44ad1;
+}
+
+/* Done button */
+.done-button {
+  background-color: #cc6ff8;
+  border: none;
+  color: white;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.done-button:hover {
+  background-color: #b44ad1;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 300px;
+  width: 80%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.modal-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.modal-buttons button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  min-width: 70px;
+}
+
+#confirmYes {
+  background-color: #cc6ff8;
+  color: white;
+}
+
+#confirmCancel {
+  background-color: #f3f4f6;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.hidden-section {
+  display: none !important;
+}
+
+.privacy-notice {
+  height: 100vh;
+  padding: 40px 20px;
+  background-color: #fff;
+  border: 8px solid #f5cdfa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.logo-wrapper {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.privacy-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.privacy-notice h1 {
+  font-size: 24px;
+  color: #cc6ff8;
+  margin-bottom: 20px;
+}
+
+.privacy-notice p {
+  max-width: 500px;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.privacy-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.accept-button, .decline-button {
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  min-width: 180px; 
+}
+
+.accept-button {
+  background-color: #cc6ff8;
+  color: white;
+}
+.accept-button:hover {
+  background-color: #b44ad1;
+}
+
+.decline-button {
+  background-color: #f3f4f6;
+  color: #333;
+}
+.decline-button:hover {
+  background-color: #e2e2e2;
+}
+
+/* Custom styles for decline modal if needed */
+#declineModal .modal-content {
+  max-width: 300px;
+}
+
+#declineModal .modal-buttons {
+  justify-content: center;
+}
+
+#declineOkButton {
+  background-color: #cc6ff8;
+  color: white;
+  padding: 8px 24px;
+  min-width: 100px;
+}
+
+/* 🌟 Feedback Section */
+#feedback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #fff;
+  border: 8px solid #f5cdfa;  
+  flex-direction: column;
+  text-align: center;
+}
+
+.feedback-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px #f5cdfa;
+  width: 80%;
+  max-width: 400px;
+}
+
+.feedback-stars {
+  font-size: 2rem;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.feedback-stars .fstar.selected {
+  color: gold;
+}
+
+#feedback-text {
+  width: 100%;
+  height: 100px;
+  margin: 10px 0;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  resize: none;
+}
+
+#submitFeedback, #skipFeedback {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #cc6ff8;
+  color: white;
+}
+
+#skipFeedback {
+  background: gray;
+}
+
+/* 👇 Start Camera Button */
+.start-camera-button {
+  background-color: #cc6ff8;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  z-index: 10;
+  position: relative;
+}
+
+.brand-btn.active {
+  cursor: pointer;
+  background: none;
+  background-color: #e0b9f3;
+  padding: 4px 8px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000000;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#captureModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#captureModal.hidden { display: none; }
+#captureModal .modal-content {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+#capture-preview {
+  max-width: 100%;
+  max-height: 80vh;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+/* Capture Preview Modal */
+#capturePreviewModal .modal-content {
+  max-width: 500px;
+  padding: 20px;
+}
+
+#capturePreviewModal .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+#previewImage {
+  max-width: 100%;
+  max-height: 60vh;
+  margin: 15px 0;
+  border-radius: 8px;
+}
+
+#previewOk {
+  background-color: #cc6ff8;
+  color: white;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
