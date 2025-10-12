@@ -1,0 +1,240 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #fff0f5, #f8f8ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-card {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 30px 25px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  display: none;
+  border: 2px solid #c2185b; /* Enhanced border contrast */
+  width: 100%;
+  overflow: hidden;
+}
+
+.form-card.active {
+  display: block;
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.icon {
+  background: linear-gradient(135deg, #c2185b, #7b1fa2); /* Enhanced contrast */
+  color: white;
+  font-size: 28px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(194, 24, 91, 0.4); /* Enhanced shadow */
+}
+
+.icon img.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+h2 {
+  color: #c2185b; /* Enhanced contrast */
+  margin-bottom: 25px;
+  font-weight: 700;
+  font-size: 24px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  line-height: 1.3;
+}
+
+label {
+  display: block;
+  text-align: left;
+  font-size: 14px;
+  margin-top: 15px;
+  font-weight: 600;
+  color: #4a0072; /* Enhanced contrast */
+}
+
+input[type='email'],
+input[type='password'] {
+  width: 100%;
+  padding: 12px 15px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+  border: 2px solid #c2185b; /* Enhanced border */
+  border-radius: 8px;
+  background-color: #fff;
+  color: #2d0047; /* Enhanced text contrast */
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-size: 16px;
+}
+
+input[type='email']:focus,
+input[type='password']:focus {
+  border-color: #7b1fa2; /* Enhanced focus */
+  box-shadow: 0 4px 12px rgba(123, 31, 162, 0.3);
+  outline: none;
+}
+
+.password-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrap .toggle {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #c2185b; /* Enhanced contrast */
+  transition: color 0.3s ease;
+  background: none;
+  border: none;
+  font-size: 16px;
+}
+
+.password-wrap .toggle:hover {
+  color: #7b1fa2; /* Enhanced hover */
+}
+
+button.primary {
+  width: 100%;
+  background: linear-gradient(135deg, #c2185b, #7b1fa2); /* Enhanced contrast */
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  box-shadow: 0 4px 15px rgba(194, 24, 91, 0.4); /* Enhanced shadow */
+  position: relative;
+  overflow: hidden;
+}
+
+button.primary:hover {
+  background: linear-gradient(135deg, #ad1457, #6a1b9a); /* Enhanced hover */
+  box-shadow: 0 6px 20px rgba(194, 24, 91, 0.5);
+  transform: translateY(-2px);
+}
+
+button.primary:active {
+  transform: translateY(0);
+}
+
+p {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555; /* Enhanced contrast */
+  line-height: 1.4;
+}
+
+p a {
+  color: #c2185b; /* Enhanced contrast */
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+p a:hover {
+  color: #7b1fa2; /* Enhanced hover */
+  text-decoration: underline;
+}
+
+small {
+  display: block;
+  margin-top: 20px;
+  color: #666; /* Enhanced contrast */
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  body {
+    padding: 15px;
+    align-items: flex-start;
+    min-height: 100vh;
+    height: auto;
+  }
+  
+  .container {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+  
+  .form-card {
+    padding: 25px 20px;
+    margin: 0;
+  }
+  
+  h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  
+  .icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+  }
+  
+  input[type='email'],
+  input[type='password'] {
+    padding: 10px 12px;
+    font-size: 16px;
+  }
+  
+  button.primary {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 320px) {
+  .form-card {
+    padding: 20px 15px;
+  }
+  
+  h2 {
+    font-size: 20px;
+  }
+  
+  .icon {
+    width: 50px;
+    height: 50px;
+  }
+}

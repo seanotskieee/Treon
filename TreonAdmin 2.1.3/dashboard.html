@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="firebase-disable-source-maps" content="true">
+  <title>TreonAdmin Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+  <!-- Firebase SDK (COMPATIBILITY VERSION) -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="firebase-config.js"></script>
+</head>
+<body>
+  <script>
+    // Authentication check - run immediately
+    if (sessionStorage.getItem("isLoggedIn") !== "true") {
+      window.location.href = "Login.html";
+    }
+  </script>
+  
+  <div class="sidebar">
+    <div class="logo">TREON</div>
+    <div class="profile">
+      <div class="profile-image">
+        <img src="static/Admin.png" alt="Admin Profile">
+      </div>
+      <span>Admin</span>
+      <span>Dashboard</span>
+    </div>
+    <button class="nav-button active" id="dashboard-btn">Dashboard</button>
+    <button class="nav-button" id="sessions-btn">Sessions</button>
+    <button class="nav-button" id="products-btn">Products</button>
+    <button class="nav-button" id="settings-btn">Settings</button>
+  </div>
+
+  <div class="main">
+    <div class="header-box">
+      <h1>Dashboard Overview</h1>
+      <p>Welcome Back! Here's what's happening with your store.</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat-card">
+        <span>Total Sessions</span>
+        <span id="total-sessions">0</span>
+      </div>
+      <div class="stat-card">
+        <span>Total Products</span>
+        <span id="total-products">0</span>
+      </div>
+      <div class="stat-card">
+        <span>Popular Product</span>
+        <span id="popular-product">N/A</span>
+      </div>
+      <div class="stat-card">
+        <span>Avg. Session Time (Week)</span>
+        <span id="avg-session">0m</span>
+      </div>
+    </div>
+
+    <div class="widgets">
+      <div class="widget">
+        <h4>Monthly Sessions Overview</h4>
+        <canvas id="sessionsChart"></canvas>
+      </div>
+      
+      <div class="widget">
+        <h4>Recent Sessions</h4>
+        <div class="sessions-container">
+          <div id="recent-sessions-list">
+            <div class="placeholder-table">
+              <i class="fas fa-spinner fa-spin fa-2x"></i>
+              <p>Loading recent sessions...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="monthly-overview">
+      <h3>Monthly Breakdown</h3>
+      
+      <!-- Interactive date display positioned at the top -->
+      <div id="currentMonthDisplay" class="current-month-display interactive">September 2024</div>
+
+      <div class="weekly-breakdown">
+        <div class="week-card">
+          <div class="week-label">Week 1 (1-7)</div>
+          <div id="week1Count" class="week-count">0</div>
+        </div>
+        <div class="week-card">
+          <div class="week-label">Week 2 (8-14)</div>
+          <div id="week2Count" class="week-count">0</div>
+        </div>
+        <div class="week-card">
+          <div class="week-label">Week 3 (15-21)</div>
+          <div id="week3Count" class="week-count">0</div>
+        </div>
+        <div class="week-card">
+          <div class="week-label">Week 4 (22-28)</div>
+          <div id="week4Count" class="week-count">0</div>
+        </div>
+        <div class="week-card">
+          <div class="week-label">Week 5 (29-31)</div>
+          <div id="week5Count" class="week-count">0</div>
+        </div>
+      </div>
+
+      <div class="month-total">
+        <div class="total-label">Monthly Total</div>
+        <div id="monthTotalCount" class="total-count">0</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enhanced Date Picker Modal with Traditional Calendar View -->
+  <div id="datePickerModal" class="record-modal hidden">
+    <div class="record-modal-content calendar-modal">
+      <span class="close" onclick="closeDatePicker()">&times;</span>
+      <h3>Select Date</h3>
+      
+      <!-- Traditional Calendar View -->
+      <div id="traditionalCalendar" class="calendar-view active">
+        <!-- Traditional calendar will be generated here by JavaScript -->
+      </div>
+      
+      <div class="selected-date-display">
+        Selected: <span id="selectedDateDisplay">October 15, 2024</span>
+      </div>
+      
+      <div class="calendar-footer">
+        <button onclick="closeDatePicker()" class="cancel-record-btn">Cancel</button>
+        <button id="applyCalendarBtn" class="save-record-btn">Select Date</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
