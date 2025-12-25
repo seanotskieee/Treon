@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TREON</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+ <div id="portrait-app">
+<!-- Splash Screen -->
+<section id="splash" class="splash-fullpage" onclick="goToTryOn()">
+  <p class="tap-text">Tap anywhere to continue</p>
+</section>
+
+<!-- Try-On Screen -->
+<section id="tryon" class="tryon-screen hidden-section">
+  <div class="video-container">
+    <img id="video" src="video_feed" />
+    <!-- No products message will be inserted here by JavaScript -->
+  </div>
+
+  <div class="options-row">
+    <div class="scroll-select brand-scroll">
+      <div class="scroll-row">
+        <!-- Brand buttons will be dynamically added by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <div class="shade-row">
+    <div class="scroll-select color-scroll">
+      <div class="scroll-row">
+        <!-- Shade buttons dynamically added from JS -->
+      </div>
+    </div>
+  </div>
+  
+  <div class="star-rate">
+      <!-- ⭐ Star Rating Section -->
+      <p id="rate-label" class="rate-label">Rate this Shade</p>
+      <div class="scroll-select rating-box" id="ratingBox">
+        <div id="ratingContainer" class="rating-container">
+          <span class="star" data-value="1">&#9734;</span>
+          <span class="star" data-value="2">&#9734;</span>
+          <span class="star" data-value="3">&#9734;</span>
+          <span class="star" data-value="4">&#9734;</span>
+          <span class="star" data-value="5">&#9734;</span>
+        </div>
+      </div>
+  </div>
+
+  <div class="cap-button">
+    <button id="captureButton" class="capture-button">Capture</button>
+  </div>
+
+  <div class="nav-buttons">
+    <a href="#" class="back-button" onclick="goToSplash()">&larr;</a>
+    <button class="done-button" onclick="showDoneModal()">I'm Done</button>
+  </div>
+
+  <img id="capture-preview" style="display:none; max-width: 100%; margin-top:10px; border: 2px solid #ccc; border-radius: 8px;">
+
+  <!-- Confirm Modal inside Try-On -->
+  <div id="confirmModal" class="modal hidden">
+    <div class="modal-content">
+      <p>Are you sure you're done?</p>
+      <div class="modal-buttons">
+        <button id="confirmYes">Yes</button>
+        <button id="confirmCancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Capture Preview Modal -->
+  <div id="capturePreviewModal" class="modal hidden">
+    <div class="modal-content">
+      <span id="closePreview" class="close">&times;</span>
+      <h2>Result</h2>
+      <img id="previewImage" src="" alt="Preview" style="max-width:100%; border-radius:10px;">
+      <button id="previewOk">OK</button>
+    </div>
+  </div>
+</section>
+
+<!-- Privacy Notice -->
+<section id="privacy" class="privacy-notice hidden-section">
+  <div class="logo-wrapper">
+    <img src="Treon1b1.jpg" alt="TREON Logo" class="privacy-logo" />
+  </div>
+
+  <h1>Data Privacy Notice</h1>
+  <p>
+    To ensure a better customer experience, the system captures data
+    with regards to facial features during use. The captured data will be used
+    to improve the system and its features. However, users may opt out
+    the saving of personal data.
+  </p>
+
+  <div class="privacy-buttons">
+    <button class="accept-button">No Problem!</button>
+    <button class="decline-button">No Please!</button>
+  </div>
+</section>
+
+<!-- Decline Modal -->
+<div id="declineModal" class="modal hidden">
+  <div class="modal-content">
+    <p>Your preference has been saved. No personal data will be stored.</p>
+    <div class="modal-buttons">
+      <button id="declineOkButton">OK</button>
+    </div>
+  </div>
+</div>
+
+<!-- 🌟 Feedback Section -->
+<section id="feedback" class="hidden-section">
+  <div class="feedback-container">
+    <h2>We'd love your feedback 💬</h2>
+    <p>Can you rate this app and share your thoughts?</p>
+
+    <!-- Star rating -->
+    <div class="feedback-stars">
+      <span class="fstar">☆</span>
+      <span class="fstar">☆</span>
+      <span class="fstar">☆</span>
+      <span class="fstar">☆</span>
+      <span class="fstar">☆</span>
+    </div>
+
+    <!-- Text input -->
+    <textarea id="feedback-text" placeholder="Write your feedback here..."></textarea>
+
+    <!-- Buttons -->
+    <button id="submitFeedback">Submit</button>
+    <button id="skipFeedback">Skip</button>
+  </div>
+</section>
+
+<script>
+  // Global variable to track privacy consent
+  let userConsent = false;
+
+  function goToSplash() {
+    document.getElementById('privacy').classList.add('hidden-section');
+    document.getElementById('tryon').classList.add('hidden-section');
+    document.getElementById('feedback').classList.add('hidden-section');
+    document.getElementById('splash').classList.remove('hidden-section');
+  }
+
+  function goToPrivacy() {
+    document.getElementById('splash').classList.add('hidden-section');
+    document.getElementById('tryon').classList.add('hidden-section');
+    document.getElementById('feedback').classList.add('hidden-section');
+    document.getElementById('privacy').classList.remove('hidden-section');
+  }
+
+  function goToTryOn() {
+    document.getElementById('splash').classList.add('hidden-section');
+    document.getElementById('privacy').classList.add('hidden-section');
+    document.getElementById('feedback').classList.add('hidden-section');
+    document.getElementById('tryon').classList.remove('hidden-section');
+    resetTryOnScreen();
+  }
+
+  function goToFeedback() {
+    document.getElementById('tryon').classList.add('hidden-section');
+    document.getElementById('privacy').classList.add('hidden-section');
+    document.getElementById('feedback').classList.remove('hidden-section');
+  }
+
+  function showDoneModal() {
+    document.getElementById('confirmModal').classList.remove('hidden');
+  }
+
+  // Update splash screen to go to Privacy instead of TryOn
+  document.getElementById('splash').onclick = goToPrivacy;
+
+  document.getElementById('confirmCancel')?.addEventListener('click', () => {
+    document.getElementById('confirmModal').classList.add('hidden');
+  });
+
+  document.getElementById('confirmYes')?.addEventListener('click', () => {
+    document.getElementById('confirmModal').classList.add('hidden');
+    goToFeedback();
+  });
+
+  // Accept button - user consents to data collection
+  document.querySelector('.accept-button')?.addEventListener('click', () => {
+    userConsent = true;
+    console.log("✅ User consented to data collection");
+    
+    // Save privacy preference
+    if (window.firebaseDB) {
+      savePrivacyPreference(true);
+    }
+    
+    goToTryOn();
+  });
+
+  // Decline button - user does NOT consent to photo storage
+  document.querySelector('.decline-button')?.addEventListener('click', () => {
+    userConsent = false;
+    console.log("❌ User declined photo storage");
+    
+    // Save privacy preference
+    if (window.firebaseDB) {
+      savePrivacyPreference(false);
+    }
+    
+    document.getElementById('declineModal').classList.remove('hidden');
+  });
+
+  document.getElementById('declineOkButton')?.addEventListener('click', () => {
+    document.getElementById('declineModal').classList.add('hidden');
+    goToTryOn();
+  });
+
+  // Function to save privacy preference to Firebase
+  async function savePrivacyPreference(consent) {
+    try {
+      await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDB, "privacy_preferences"), {
+        user_id: currentUserId,
+        consent_given: consent,
+        timestamp: new Date()
+      });
+      console.log("✅ Privacy preference saved:", consent);
+    } catch (error) {
+      console.error("❌ Error saving privacy preference:", error);
+    }
+  }
+
+  // Make userConsent accessible globally
+  window.userConsent = userConsent;
+</script>
+
+<!-- =========================================================== -->
+<!-- FIREBASE CONFIGURATION - REPLACE WITH YOUR ACTUAL FIREBASE CONFIG -->
+<!-- =========================================================== -->
+<script type="module">
+  // Import Firebase SDKs
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+  // 🔥 REPLACE THIS ENTIRE CONFIG OBJECT WITH YOUR FIREBASE PROJECT CONFIG
+  // 🔥 Get these values from: Firebase Console > Project Settings > Your Apps > Web App
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT_ID.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Make db accessible to script.js
+  window.firebaseDB = db;
+  window.firebaseAddDoc = addDoc;
+  window.firebaseCollection = collection;
+</script>
+<!-- =========================================================== -->
+<!-- END FIREBASE CONFIGURATION -->
+<!-- =========================================================== -->
+</div>
+</body>
+</html>

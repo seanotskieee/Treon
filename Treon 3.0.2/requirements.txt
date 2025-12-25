@@ -1,0 +1,13 @@
+flask
+opencv-python
+numpy
+mediapipe==0.10.21
+firebase-admin
+protobuf==4.25.3
+grpcio-status<1.60.0
+pytz==2024.1
+torch
+torchvision
+pillow
+huggingface-hub
+requests
